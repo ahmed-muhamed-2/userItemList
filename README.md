@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ba3cc458-3048-400e-b172-631e8d3180ba/deploy-status)](https://app.netlify.com/sites/heuristic-northcutt-510c33/deploys)
+
 # ItemMangemant
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
