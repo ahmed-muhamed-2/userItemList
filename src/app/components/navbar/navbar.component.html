@@ -1,0 +1,12 @@
+<nav>
+  <div class="nav-wrapper black">
+    <a href="/" class="brand-logo center">FS {{ name }}</a>
+    <button
+      class="waves-effect waves-light btn"
+      (click)="logout()"
+      *ngIf="isLoggedIn$ | async"
+    >
+      logOut
+    </button>
+  </div>
+</nav>
