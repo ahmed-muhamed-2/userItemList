@@ -1,38 +1,32 @@
-<div class="card blue-grey darken-1">
-  <div class="card-content white-text">
-    <div class="form-container">
-      <h2>Login</h2>
-      <div class="card-panel" *ngIf="error$ | async">
-        {{ error$ }}
-      </div>
-      <form #formData="ngForm" (ngSubmit)="onSubmitLogin(formData)">
-        <input
-          type="text"
-          placeholder="Email address.."
-          (ngModel)="(email)"
-          name="email"
-          class="txt"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          (ngModel)="(password)"
-          name="password"
-          class="txt"
-          required
-        />
-        <button
-          type="submit"
-          [disabled]="!formData.valid"
-          class="waves-effect waves-light btn"
-        >
-          Log in
-        </button>
-        <div class="card-action">
-          <a routerLink="/signup" class="alc">Don't have an account?</a>
-        </div>
-      </form>
-    </div>
+<div class="form-container body">
+  <h2>Join now</h2>
+  <div class="error" *ngIf="error$ | async" [@fallIn]="state">
+    {{ error$ }}
   </div>
+  <form #formData="ngForm" (ngSubmit)="onSubmitLogin(formData)">
+    <input
+      type="text"
+      placeholder="Email address.."
+      (ngModel)="(email)"
+      name="email"
+      class="txt"
+      required
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      (ngModel)="(password)"
+      name="password"
+      class="txt"
+      required
+    />
+    <button type="submit" [disabled]="!formData.valid" class="basic-btn">
+      Log in
+    </button>
+    <div class="card-action">
+      <a routerLink="/signup" routerLinkActive="active" class="alc"
+        >No account? <strong>Create one here</strong></a
+      >
+    </div>
+  </form>
 </div>

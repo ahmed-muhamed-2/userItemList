@@ -1,38 +1,28 @@
-<div class="card">
-  <div class="card-content blue-grey darken-1">
-    <div class="form-container white-text">
-      <div class="card-action">
-        <a routerLink="/login" id="goback">Go back</a>
-      </div>
+<div class="form-container body">
+  <a routerLink="/login" id="goback">Go back</a>
+  <h2>Join now</h2>
 
-      <h2 class="card-title">Join now</h2>
+  <span class="error" *ngIf="error" [@fallIn]="state">{{ error }}</span>
+  <form #formData="ngForm" (ngSubmit)="onSubmit(formData)">
+    <input
+      type="text"
+      placeholder="Email address.."
+      (ngModel)="(email)"
+      name="email"
+      class="txt"
+      required
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      (ngModel)="(password)"
+      name="password"
+      class="txt"
+      required
+    />
 
-      <form #formData="ngForm" (ngSubmit)="onSubmit(formData)">
-        <input
-          type="text"
-          placeholder="Email address.."
-          (ngModel)="(email)"
-          name="email"
-          class="txt"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          (ngModel)="(password)"
-          name="password"
-          class="txt"
-          required
-        />
-
-        <button
-          type="submit"
-          [disabled]="!formData.valid"
-          class="waves-effect waves-light btn"
-        >
-          Create my account
-        </button>
-      </form>
-    </div>
-  </div>
+    <button type="submit" [disabled]="!formData.valid" class="basic-btn">
+      Create my account
+    </button>
+  </form>
 </div>
