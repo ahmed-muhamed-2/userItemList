@@ -3,7 +3,7 @@
   <div class="error" *ngIf="error$ | async" [@fallIn]="state">
     {{ error$ }}
   </div>
-  <form #formData="ngForm" (ngSubmit)="onSubmitLogin(formData)">
+  <form #formData="ngForm" (ngSubmit)="onSubmitLogin(formData)" class="center">
     <input
       type="text"
       placeholder="Email address.."
