@@ -2,8 +2,29 @@
   <a routerLink="/login" id="goback">Go back</a>
   <h2>Join now</h2>
 
-  <span class="error" *ngIf="error" [@fallIn]="state">{{ error }}</span>
-  <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="center">
+  <div class="error" *ngIf="error$ | async" [@fallIn]="state">
+    {{ error$ | async }}
+  </div>
+  <form [formGroup]="formSingup" (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      placeholder="Email address.."
+      formControlName="email"
+      name="email"
+      class="txt"
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      formControlName="password"
+      name="password"
+      class="txt"
+    />
+    <button type="submit" [disabled]="!formSingup.valid" class="basic-btn">
+      Create my account
+    </button>
+  </form>
+  <!-- <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="center">
     <input
       type="text"
       placeholder="Email address.."
@@ -24,5 +45,5 @@
     <button type="submit" [disabled]="!formData.valid" class="basic-btn">
       Create my account
     </button>
-  </form>
+  </form> -->
 </div>

@@ -1,32 +1,37 @@
 <div class="form-container body">
   <h2>Join now</h2>
+  <!-- <div class="error" *ngIf="error$ | async as errorMessage">
+    {{ errorMessage }}
+  </div> -->
+
   <div class="error" *ngIf="error$ | async" [@fallIn]="state">
-    {{ error$ }}
+    {{ error$ | async }}
   </div>
-  <form #formData="ngForm" (ngSubmit)="onSubmitLogin(formData)" class="center">
+  <form [formGroup]="form" (ngSubmit)="onSubmitLogin()" class="center">
     <input
       type="text"
       placeholder="Email address.."
-      (ngModel)="(email)"
+      [formControl]="form.get('email')"
       name="email"
       class="txt"
-      required
     />
+
     <input
       type="password"
       placeholder="Password"
-      (ngModel)="(password)"
+      [formControl]="form.get('password')"
       name="password"
       class="txt"
-      required
     />
-    <button type="submit" [disabled]="!formData.valid" class="basic-btn">
+
+    <button type="submit" [disabled]="!form.valid" class="basic-btn">
       Log in
     </button>
     <div class="card-action">
-      <a routerLink="/signup" routerLinkActive="active" class="alc"
-        >No account? <strong>Create one here</strong></a
-      >
+      <a routerLink="/signup" routerLinkActive="active" class="alc">
+        No account?
+        <strong>Create one here</strong>
+      </a>
     </div>
   </form>
 </div>

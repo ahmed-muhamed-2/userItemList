@@ -1,11 +1,20 @@
 import { Item } from "../../models/item";
 import { ItemService } from "../../service/item.service";
 import { Component, OnInit } from "@angular/core";
+import { trigger, transition, animate, style } from "@angular/animations";
 
 @Component({
   selector: "app-items",
   templateUrl: "./items.component.html",
-  styleUrls: ["./items.component.css"]
+  styleUrls: ["./items.component.css"],
+  animations: [
+    trigger("fade", [
+      transition("void => *", [
+        style({ backgroundColor: "#2C9E58", opacity: 0 }),
+        animate(2000, style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class ItemsComponent implements OnInit {
   items: Item[];

@@ -12,28 +12,17 @@ export class AuthenticationService {
   constructor(public afAuth: AngularFireAuth, private rot: Router) {}
 
   createEmail(formData) {
-    console.log(formData.email);
+    // console.log(formData.email);
     return this.afAuth.auth
-      .createUserWithEmailAndPassword(formData.email, formData.password)
-      .then(res => {
-        console.log(res);
-        this.rot.navigate(["/item-mange"]);
-      })
-      .catch(err => console.log(err));
+      .createUserWithEmailAndPassword(formData.email, formData.password);
   }
 
   login(formData) {
-    console.log(formData.email);
-    return this.afAuth.auth
-      .signInWithEmailAndPassword(formData.email, formData.password)
-      .then(res => {
-        this.rot.navigate(["/item-mange"]);
-        this.loggedIn.next(true);
-      })
-      .catch(err => {
-        console.log(err);
-        this.error = err.message;
-      });
+    // console.log(formData.email);
+    return this.afAuth.auth.signInWithEmailAndPassword(
+      formData.email,
+      formData.password
+    );
   }
 
   logout() {

@@ -1,5 +1,5 @@
 <div *ngIf="items?.length > 0; else noItems">
-  <ul *ngFor="let item of items" class="collection">
+  <ul *ngFor="let item of items" class="collection" @fade>
     <li class="collection-item">
       <strong>{{ item.title }} :</strong> {{ item.description }}
       <a class="secondary-content"
